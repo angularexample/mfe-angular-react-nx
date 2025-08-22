@@ -362,7 +362,8 @@ Import the ```r2wc``` function from the package.
 import r2wc from "@r2wc/react-to-web-component";
 ```
 
-In your React component, add a function to convert the component to a Web Component.
+In your React component, after the ```App()``` function,
+add a function to convert the component to a Web Component.
 
 You will need to supply a new element name for the Web Component.
 In this case, we will use the name ```wc-remote3```.
