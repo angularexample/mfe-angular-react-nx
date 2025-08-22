@@ -446,7 +446,7 @@ import { ReactWrapper } from "./react-wrapper/react-wrapper";
 
 Add a new route by adding the following code to the routes file.
 
-```typescript
+```
   {
     path: 'reactremote1',
     component: ReactWrapper, // the Angular wrapper component which will load any React web component
@@ -468,7 +468,7 @@ Open the host tsconfig.json file.
 
 Under the compilerOptions, add the following code to allow JSX.
 
-```json
+```
   "compilerOptions": {
     "jsx": "react-jsx",
 ```
@@ -481,7 +481,7 @@ Open the host app.html file.
 
 Add the following code to the host app.html file.
 
-```html
+```
   <li><a routerLink="reactremote1">Reactremote1</a></li>
 ```
 
