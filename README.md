@@ -39,6 +39,8 @@ JC may be available to work remotely and can be contacted at these links:
   * [Create a Git Repository](#create-a-git-repository)
   * [Add the error.log Directory to the .gitignore File](#add-the-errorlog-directory-to-the-gitignore-file)
 * [Add Nx Packages for Angular and React](#add-nx-packages-for-angular-and-react)
+  * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
+  * [Add the Nx Package for React](#add-the-nx-package-for-react) 
 * [Generate the Angular Host App](#generate-the-angular-host-app)
   * [Browser View of the Host Application](#browser-view-of-the-host-application)
   * [Use the Menu to Access the Remote Applications](#use-the-menu-to-access-the-remote-applications)
@@ -95,12 +97,22 @@ Note: Alternatively, share the project on GitHub. This will create a new reposit
 
 Use your IDE to add the ```error.log``` directory to the .gitignore file.
 
-## Add Nx Packages for Angular and React
-
 In your IDE, Open a terminal window and ensure the location is the root of the workspace.
 
+Use the IDE terminal to run all the commands in this project.
+
+## Add Nx Packages for Angular and React
+
+### Add the Nx Package for Angular
+
 ```
-nx add @nx/angular @nx/react
+nx add @nx/angular
+```
+
+### Add the Nx Package for React
+
+```
+nx add @nx/react
 ```
 
 Commit and push the changes.
