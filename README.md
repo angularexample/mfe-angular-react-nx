@@ -14,7 +14,7 @@ August 22, 2025
 
 At the time of this writing, it used the latest versions provided by Nx
 
-* Nx 21.3.11
+* Nx 21.4.1
 * Angular 20.1.0
 * React 19.0.0
 
