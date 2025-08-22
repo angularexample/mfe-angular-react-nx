@@ -41,7 +41,7 @@ JC may be available to work remotely and can be contacted at these links:
 * [Add Nx Packages for Angular and React](#add-nx-packages-for-angular-and-react)
   * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
   * [Add the Nx Package for React](#add-the-nx-package-for-react) 
-* [Generate the Angular Host App](#generate-the-angular-host-app)
+* [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
   * [Browser View of the Host Application](#browser-view-of-the-host-application)
   * [Use the Menu to Access the Remote Applications](#use-the-menu-to-access-the-remote-applications)
 * [Generate the React Remote Application](#generate-the-react-remote-application)
@@ -117,7 +117,7 @@ nx add @nx/react
 
 Commit and push the changes.
 
-## Generate the Angular Host App
+## Generate the Angular Host App and Two Remotes
 
 Use the Nx Angular Generator command to create the Angular host app.
 
@@ -141,7 +141,8 @@ When using the Angular host generator, the remote applications will always be An
 
 After you create the Angular host application, commit and push the changes.
 
-**NOTE: You may get lint errors** or warnings regarding the Nx Welcome page component. Ignore those errors until after you have completed all the steps to create the remote MFE apps.
+**NOTE: You may get format errors** or warnings regarding HTML or the Nx Welcome page component.
+Ignore those errors until after you have completed all the steps to create the remote MFE apps.
 
 Then test the host application by running it.
 
