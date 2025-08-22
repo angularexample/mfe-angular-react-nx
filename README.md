@@ -20,14 +20,14 @@ At the time of this writing, it used the latest versions provided by Nx
 
 ## About The Author
 
-**JC Lango** is a UI Architect and Developer for large scale web applications at several Fortune 500 companies.
+```JC Lango``` is a UI Architect and Developer for many large-scale web applications at several well-known Fortune 500 companies.
 
-He is an expert in **Angular** and **React** and maintains these sites at Github:
+He is an expert in **Angular** and **React** and maintains these sites at GitHub:
 
 * **AngularExample** [https://github.com/angularexample](https://github.com/angularexample)
 * **ReactJSExample** [https://github.com/reactjsexample](https://github.com/reactjsexample)
 
-JC may be available to work remote, and can be contacted at these links:
+JC may be available to work remotely and can be contacted at these links:
 
 * LinkedIn: [https://linkedin.com/in/jclango](https://linkedin.com/in/jclango)
 * Email: [jobs@jclango.com](mailto:jobs@jclango.com)
@@ -114,15 +114,15 @@ See the Nx documentation for more information on the [Angular Host App Generator
 Add the following command line options.
 
 * --dynamic
-* --remotes=ngremote1,ngremote2
+* --remotes=remote1,remote2
 * --style=scss
-* --e2etestrunner=playwright
-* --unittestrunner=jest
+* --e2eTestRunner=playwright
+* --unitTestRunner=jest
 
 ```
-nx g @nx/angular:host apps/nghost --dynamic --remotes=ngremote1,ngremote2 --style=scss --e2eTestRunner=playwright --unitTestRunner=jest
+nx g @nx/angular:host apps/host --dynamic --remotes=remote1,remote2 --style=scss --e2eTestRunner=playwright --unitTestRunner=jest
 ```
-NOTE: The --remotes option is a comma separated list of remote applications.
+NOTE: The --remotes option is a comma-separated list of remote applications.
 When using the Angular host generator, the remote applications will always be Angular applications.
 
 ### Commit and Push the Changes for the Angular Host App
@@ -142,10 +142,10 @@ You can use the Nx Console to run the host application.
 Or you can use a command in the terminal window.
 
 ```
-nx run nghost:serve:development
+nx run host:serve:development
 ```
 
-* **nghost** is the name of the host application.
+* **host** is the name of the host application.
 
 In the Run console output, it should include the browser address.
 
@@ -163,18 +163,18 @@ You should see the Nx Welcome page.
 
 It will have a menu in the upper left corner.
 
-In this case, if you have generated a host and 2 remotes,
-the menu will have 3 items:
+In this case, if you have generated a host and two remotes,
+the menu will have three items:
 
 ```
 * Home
-* Ngremote1
-* Ngremote2
+* Remote1
+* Remote2
 ```
 
 #### Use the Menu to Access the Remote Applications
 
-Try clicking on the **Ngremote1** or **Ngremote2** menu items.
+Try clicking on the **Remote1** or **Remote2** menu items.
 
 You will see that each remote is accessed with routing.
 
@@ -182,20 +182,20 @@ The host application will be the root.
 Each remote will be a child of the host application.
 
 The remote app name will be in the URL path.
-For example, the ngremote1 application will be:
+For example, the Remote1 application will be:
 
 ```
-http://localhost:4200/ngremote1
+http://localhost:4200/remote1
 ```
 
-When you click on the ```Ngremote1``` menu item, you should see the remote application running in the browser.
+When you click on the ```Remote1``` menu item, you should see the remote application running in the browser.
 
-When you click on the ```Ngremote2``` menu item, you should see the remote application running in the browser.
+When you click on the ```Remote2``` menu item, you should see the remote application running in the browser.
 
 #### Verify the Remote View is Provided by MFE
 
 To verify that the remote view is provided by MFE,
-open the browser Developer Tools, and go to the **Network** tab.
+open the browser Developer Tools and go to the **Network** tab.
 
 Refresh the browser.
 
@@ -207,7 +207,7 @@ the request is:
 
 ```http://localhost:4201/default-apps_ngremote1_src_app_remote-entry_entry_ts.js```
 
-Webpack bundles the remote app as single JavaScript file, and the remote application is served from its own server address.
+Webpack bundles the remote app as a single JavaScript file, and the remote application is served from its own server address.
 The remote app is accessed as a script request by the host application.
 
 The request URL for the second remote application is:
@@ -240,7 +240,7 @@ In this case, ```reactremote1``` is the name, and ```apps``` is the directory.
 
 **NOTE: Do not supply the ```--host``` option.**
 
-Since the host is an Angular application, the generate step will fail.
+Since the host is an Angular application, the generation step will fail.
 The Nx generator does not support mixing different frameworks in MFEs.
 
 You will need to configure the remote application to the host manually.
@@ -262,7 +262,7 @@ Or you can use a command in the terminal window.
 nx run reactremote1:serve:development
 ```
 
-* **reactremote1** is the name of the remote application.
+* **Remote3** is the name of the React remote application.
 
 Look in the Run console output for the browser address.
 In this case, it is:
@@ -279,7 +279,7 @@ Stop the remote application.
 
 Run the host application to make sure it still works.
 
-Notice that the react remote application is not started and is longer available.
+Notice that the React remote application is not started and is not available.
 
 The host does not yet know about the React remote application.
 
@@ -300,17 +300,17 @@ Open the host manifest file.
 BEFORE
 ```json
 {
-  "ngremote1": "http://localhost:4201/mf-manifest.json",
-  "ngremote2": "http://localhost:4202/mf-manifest.json"
+  "remote1": "http://localhost:4201/mf-manifest.json",
+  "remote2": "http://localhost:4202/mf-manifest.json"
 }
 ```
 
 AFTER
 ```json
 {
-  "ngremote1": "http://localhost:4201/mf-manifest.json",
-  "ngremote2": "http://localhost:4202/mf-manifest.json",
-  "reactremote1": "http://localhost:4203/mf-manifest.json"
+  "remote1": "http://localhost:4201/mf-manifest.json",
+  "remote2": "http://localhost:4202/mf-manifest.json",
+  "remote3": "http://localhost:4203/mf-manifest.json"
 }
 ```
 
@@ -337,7 +337,7 @@ It can only be used with React 18 or newer.
 
 Open the React remote app component.
 
-```apps/reactremote1/src/app/app.tsx```
+```apps/remote3/src/app/app.tsx```
 
 Import the ```r2wc``` function from the package.
 
@@ -353,10 +353,10 @@ In this case, we will use the name ```wc-reactremote1```.
 ```typescript
 export function defineReactWebComponent() {
   // Define the new custom element with the element name for the React Web Component.
-  if (!customElements.get('wc-reactremote1')) {
-    if (!customElements.get('wc-reactremote1')) {
+  if (!customElements.get('wc-remote3')) {
+    if (!customElements.get('wc-remote3')) {
       // This is where we convert the React component to a Web Component
-      customElements.define('wc-reactremote1', r2wc(App));
+      customElements.define('wc-remote3', r2wc(App));
     }
   }
 }
@@ -373,7 +373,7 @@ export default App;
 
 We need an Angular component to wrap the React Web Component.
 
-We will call this component ```reactremote1-wrapper```.
+We will call this component ```react-wrapper```.
 
 In the Angular host app, create a new directory using the same name as the component, in the src/app directory, and create the component, using the Nx Angular component generator.
 
@@ -426,7 +426,7 @@ export class ReactWrapper implements AfterContentInit {
 
 This wrapper component will load the React Web Component into the view.
 
-It gets the loader function, 'loadchildren' from the route data.
+It gets the loader function, ```loadchildren``` from the route data.
 
 It gets the name of the Web Component from the route data.
 
@@ -444,7 +444,7 @@ Import the wrapper component.
 import { ReactWrapper } from "./react-wrapper/react-wrapper";
 ```
 
-Add a new route by adding the following code to the routes file.
+Add a new route by adding the following code to the ```app.routes.ts``` file.
 
 ```
   {
