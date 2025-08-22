@@ -510,7 +510,7 @@ Open the host app.html file.
 Add the following code to the host app.html file.
 
 ```
-  <li><a routerLink="remote3">remote3</a></li>
+  <li><a routerLink="remote3">Remote3</a></li>
 ```
 
 ### ReRun the Host Application To Verify the React Remote Application
