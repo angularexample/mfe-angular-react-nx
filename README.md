@@ -359,7 +359,7 @@ Open the React remote app component.
 Import the ```r2wc``` function from the package.
 
 ```typescript
-import r2wc from "@r2wc/react-to-web-component";
+import r2wc from '@r2wc/react-to-web-component';
 ```
 
 In your React component, after the ```App()``` function,
@@ -469,7 +469,7 @@ Open the host routes file.
 Import the wrapper component.
 
 ```typescript
-import { ReactWrapper } from "./react-wrapper/react-wrapper";
+import { ReactWrapper } from './react-wrapper/react-wrapper';
 ```
 
 Add a new route by adding the following code to the ```app.routes.ts``` file.
