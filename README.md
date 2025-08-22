@@ -403,6 +403,16 @@ Open the wrapper component.
 
 ```apps/host/src/app/react-wrapper/react-wrapper.ts```
 
+Remove the ```templateUrl``` and ```styleUrl``` properties.
+
+Delete those two files.
+
+```apps/host/src/app/react-wrapper/react-wrapper.css```
+
+```apps/host/src/app/react-wrapper/react-wrapper.html```
+
+Remove the import for the ```CommonModule```.
+
 BEFORE
 ```typescript
 import { Component } from '@angular/core';
