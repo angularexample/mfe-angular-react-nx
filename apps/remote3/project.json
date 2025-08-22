@@ -1,0 +1,89 @@
+{
+  "name": "remote3",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/remote3/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/remote3",
+        "index": "apps/remote3/src/index.html",
+        "baseHref": "/",
+        "main": "apps/remote3/src/main.ts",
+        "tsConfig": "apps/remote3/tsconfig.app.json",
+        "assets": ["apps/remote3/src/favicon.ico", "apps/remote3/src/assets"],
+        "styles": ["apps/remote3/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "apps/remote3/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/remote3/src/environments/environment.ts",
+              "with": "apps/remote3/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/remote3/webpack.config.prod.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remote3:build",
+        "hmr": true,
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remote3:build:development"
+        },
+        "production": {
+          "buildTarget": "remote3:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/react:module-federation-static-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "serveTarget": "remote3:serve"
+      },
+      "configurations": {
+        "development": {
+          "serveTarget": "remote3:serve:development"
+        },
+        "production": {
+          "serveTarget": "remote3:serve:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/remote3/jest.config.ts"
+      }
+    }
+  }
+}
