@@ -4,10 +4,12 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@angular-devkit/core": "~20.1.0",
+    "@nx/angular": "^21.4.1",
     "@nx/js": "21.4.1",
     "@nx/workspace": "21.4.1",
     "nx": "21.4.1"
-  }
+  },
+  "dependencies": {}
 }
