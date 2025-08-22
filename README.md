@@ -91,7 +91,7 @@ The rest of the instructions will be done in your IDE.
 
 If you use the option for ```GitHub Actions``` when creating the workspace,
 a local Git repository will automatically be created in the workspace directory.
-In that case, you can skip this step to creaet a Git repository.
+In that case, you can skip this step to create a Git repository.
 
 Use your IDE to create a Git repository.
 
