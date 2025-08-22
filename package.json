@@ -8,8 +8,12 @@
     "@angular-devkit/core": "~20.1.0",
     "@nx/angular": "^21.4.1",
     "@nx/js": "21.4.1",
+    "@nx/react": "^21.4.1",
     "@nx/workspace": "21.4.1",
     "nx": "21.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
 }
