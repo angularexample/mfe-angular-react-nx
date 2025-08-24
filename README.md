@@ -469,8 +469,8 @@ Add a new route by adding the following code to the `app.routes.ts` file.
   },
 ```
 
-  * data.elementName is the name of the React Web Component, defined in the React remote app as a Web Component.
-  * data.loadChildren is the dynamic module import.
+  * `data.elementName` is the name of the React Web Component, defined in the React remote app as a Web Component.
+  * `data.loadChildren` is the dynamic module import.
 
 ### Add Jsx to the Host TsConfig
 
