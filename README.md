@@ -478,7 +478,7 @@ Open the host tsconfig file.
 
 `apps/host/tsconfig.json`
 
-Under the compilerOptions, add the following code to allow JSX.
+Under the `compilerOptions`, add the following code to allow JSX.
 
 ```
   "compilerOptions": {
