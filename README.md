@@ -55,7 +55,7 @@ JC may be available to work remotely and can be contacted at these links:
   * [Update the React Remote to Convert to a Web Component](#update-the-react-remote-to-convert-to-a-web-component)
   * [In the Angular Host, Add a Wrapper Component](#in-the-angular-host-add-a-wrapper-component)
   * [Add the Wrapper Component and the React Remote Component to the Host Routes](#add-the-wrapper-component-and-the-react-remote-component-to-the-host-routes)
-  * [Add Jsx to the Host Tsconfig](#add-jsx-to-the-host-tsconfig)
+  * [Add JSX to the Host Tsconfig](#add-jsx-to-the-host-tsconfig)
   * [Add the React Remote to the Host Manifest](#add-the-react-remote-to-the-host-manifest)
   * [Add the React Remote URL to the Host HTML](#add-the-react-remote-url-to-the-host-html) 
 * [ReRun the Host Application To Verify the React Remote Application](#rerun-the-host-application-to-verify-the-react-remote-application)
@@ -472,13 +472,13 @@ Add a new route by adding the following code to the `app.routes.ts` file.
   * `elementName` is the name of the React Web Component, defined in the React remote app as a Web Component.
   * `loadChildren` is the dynamic module import.
 
-### Add Jsx to the Host Tsconfig
+### Add JSX to the Host Tsconfig
 
 Open the host tsconfig file.
 
 `apps/host/tsconfig.json`
 
-Under the `compilerOptions`, add the following code to allow JSX.
+Under the `compilerOptions`, add the following code to allow JSX or TSX.
 
 ```
   "compilerOptions": {
