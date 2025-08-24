@@ -377,7 +377,7 @@ We need an Angular component to wrap the React Web Component.
 We will call this component `react-wrapper`.
 
 In the Angular host app, create a new directory using the same name as the component,
-in the src/app directory, and create the component, using the Nx Angular component generator.
+in the `src/app` directory, and create the component, using the Nx Angular component generator.
 
 ```
 nx g @nx/angular:component apps/host/src/app/react-wrapper/react-wrapper
