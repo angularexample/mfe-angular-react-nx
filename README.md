@@ -438,7 +438,7 @@ export class ReactWrapper implements AfterContentInit {
 
 This wrapper component will load the React Web Component into the view.
 
-It gets the loader function, `load()` from the route data `loadChildren` property.
+It gets the `load()` function from the route data `loadChildren` property.
 
 It gets the name of the Web Component from the route data `elementName` property.`
 
