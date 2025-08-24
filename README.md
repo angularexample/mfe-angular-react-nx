@@ -2,7 +2,7 @@
 
 This is a sample project for using MFEs with an Angular host and a React remote, using Nx.
 
-All code is provided in the GitHub repo [mfe-angular-react-nx](https://github.com/angularexample/mfe-angular-react-nx).
+All code is provided in the GitHub repo [https://github.com/angularexample/mfe-angular-react-nx](https://github.com/angularexample/mfe-angular-react-nx).
 
 It includes step-by-step instructions for creating the project.
 
@@ -14,13 +14,13 @@ August 22, 2025
 
 At the time of this writing, it used the latest versions provided by Nx
 
-* Nx 21.4.1
 * Angular 20.1.0
 * React 19.0.0
+* Nx 21.4.1
 
 ## About The Author
 
-```JC Lango``` is a UI Architect and Developer for many large-scale web applications at several well-known Fortune 500 companies.
+`JC Lango` is a UI Architect and Developer for many large-scale web applications at several well-known Fortune 500 companies.
 
 He is an expert in **Angular** and **React** and maintains these sites at GitHub:
 
@@ -69,10 +69,10 @@ Open a terminal window, go to the base directory where you want the new workspac
 npx create-nx-workspace mfe-angular-react-nx --preset=apps
 ```
 
-This will create a new Nx workspace in the directory ```mfe-angular-react-nx```.
+This will create a new Nx workspace in the directory `mfe-angular-react-nx`.
 
-* The name of the project or workspace in this case is ```mfe-angular-react-nx```.
-* The option ```--preset=apps``` will create an empty workspace with no app or framework.
+* The name of the project or workspace in this case is `mfe-angular-react-nx`.
+* The option `--preset=apps` will create an empty workspace with no app or framework.
 
 When prompted, select the following options.
 
@@ -87,9 +87,13 @@ Using your IDE, open the workspace.
 
 The rest of the instructions will be done in your IDE.
 
+In your IDE, Open a terminal window and ensure the location is the root of the workspace.
+
+Use the IDE terminal to run all the commands in this project.
+
 ### Create a Git Repository
 
-If you use the option for ```GitHub Actions``` when creating the workspace,
+If you use the option for `GitHub Actions` when creating the workspace,
 a local Git repository will automatically be created in the workspace directory.
 In that case, you can skip this step to create a Git repository.
 
@@ -99,13 +103,14 @@ Note: Alternatively, share the project on GitHub. This will create a new reposit
 
 ### Add the error.log Directory to the .gitignore File
 
-Use your IDE to add the ```error.log``` directory to the .gitignore file.
-
-In your IDE, Open a terminal window and ensure the location is the root of the workspace.
-
-Use the IDE terminal to run all the commands in this project.
+Use your IDE to add the `error.log` directory to the .gitignore file.
 
 ## Add Nx Packages for Angular and React
+
+You need the Nx packages for Angular and React.
+
+Note: The old packages: `@nrwl/angular`, `@nrwl/react` are deprecated.
+
 
 ### Add the Nx Package for Angular
 
@@ -138,6 +143,7 @@ Add the following command line options.
 ```
 nx g @nx/angular:host apps/host --dynamic --remotes=remote1,remote2 --style=scss --e2eTestRunner=playwright --unitTestRunner=jest
 ```
+
 NOTE: The --remotes option is a comma-separated list of remote applications.
 When using the Angular host generator, the remote applications will always be Angular applications.
 
@@ -183,11 +189,10 @@ It will have a menu in the upper left corner.
 In this case, if you have generated a host and two remotes,
 the menu will have three items:
 
-```
+
 * Home
 * Remote1
 * Remote2
-```
 
 #### Use the Menu to Access the Remote Applications
 
@@ -205,9 +210,9 @@ For example, the Remote1 application will be:
 http://localhost:4200/remote1
 ```
 
-When you click on the ```Remote1``` menu item, you should see the remote application running in the browser.
+When you click on the `Remote1` menu item, you should see the remote application running in the browser.
 
-When you click on the ```Remote2``` menu item, you should see the remote application running in the browser.
+When you click on the `Remote2` menu item, you should see the remote application running in the browser.
 
 #### Verify the Remote View is Provided by MFE
 
@@ -219,17 +224,17 @@ Refresh the browser.
 For each remote page that you visit, you should see a request for each of the remote applications.
 
 For example, for the view at
-```http://localhost:4200/remote1/```
+`http://localhost:4200/remote1/`
 the request is:
 
-```http://localhost:4201/default-apps_remote1_src_app_remote-entry_entry_ts.js```
+`http://localhost:4201/default-apps_remote1_src_app_remote-entry_entry_ts.js`
 
 Webpack bundles the remote app as a single JavaScript file, and the remote application is served from its own server address.
 The remote app is accessed as a script request by the host application.
 
 The request URL for the second remote application is:
 
-```http://localhost:4202/default-apps_remote2_src_app_remote-entry_entry_ts.js```
+`http://localhost:4202/default-apps_remote2_src_app_remote-entry_entry_ts.js`
 
 * In this case, **4202** is the port address for the second remote application.
 
@@ -243,9 +248,13 @@ If you want to create a React remote application, you will need to use the Nx Re
 
 Generate the React remote application using the @nx/react package.
 
+```
+nx g @nx/react:remote apps/remote3 --style=scss --e2eTestRunner=playwright --bundler=webpack
+```
+
 See the Nx documentation for more information on the [React Remote App Generator Options](https://nx.dev/technologies/react/api/generators/remote#options)
 
-Add the following command line options.
+We are using the following command line options:
 
 * --style=scss
 * --e2eTestRunner=playwright
@@ -253,9 +262,9 @@ Add the following command line options.
 
 If you provide a path name for the remote application, you don't need the name or directory options.
 
-In this case, ```remote3``` is the name, and ```apps``` is the directory.
+In this case, `remote3` is the name, and `apps` is the directory.
 
-**NOTE: Do not supply the ```--host``` option.**
+**NOTE: Do not supply the `--host` option.**
 
 Since the host is an Angular application, the generation step will fail.
 The Nx generator does not support mixing different frameworks in MFEs.
@@ -263,9 +272,6 @@ The Nx generator does not support mixing different frameworks in MFEs.
 You will need to configure the remote application to the host manually.
 We will provide detailed instructions later in this document.
 
-```
-nx g @nx/react:remote apps/remote3 --style=scss --e2eTestRunner=playwright --bundler=webpack
-```
 
 ### Build and Run the Remote Application
 
@@ -312,7 +318,7 @@ There are several steps to manually add the React remote application to the Angu
 
 Open the host manifest file.
 
-```apps/host/public/module-federation.manifest.json```
+`apps/host/public/module-federation.manifest.json`
 
 BEFORE
 ```json
@@ -354,19 +360,19 @@ It can only be used with React 18 or newer.
 
 Open the React remote app component.
 
-```apps/remote3/src/app/app.tsx```
+`apps/remote3/src/app/app.tsx`
 
-Import the ```r2wc``` function from the package.
+Import the `r2wc` function from the package.
 
 ```typescript
 import r2wc from '@r2wc/react-to-web-component';
 ```
 
-In your React component, after the ```App()``` function,
+In your React component, after the `App()` function,
 add a function to convert the component to a Web Component.
 
 You will need to supply a new element name for the Web Component.
-In this case, we will use the name ```wc-remote3```.
+In this case, we will use the name `wc-remote3`.
 
 ```typescript
 export function defineReactWebComponent() {
@@ -391,7 +397,7 @@ export default App;
 
 We need an Angular component to wrap the React Web Component.
 
-We will call this component ```react-wrapper```.
+We will call this component `react-wrapper`.
 
 In the Angular host app, create a new directory using the same name as the component, in the src/app directory, and create the component, using the Nx Angular component generator.
 
@@ -401,17 +407,17 @@ nx g @nx/angular:component apps/host/src/app/react-wrapper/react-wrapper
 
 Open the wrapper component.
 
-```apps/host/src/app/react-wrapper/react-wrapper.ts```
+`apps/host/src/app/react-wrapper/react-wrapper.ts`
 
-Remove the ```templateUrl``` and ```styleUrl``` properties.
+Remove the `templateUrl` and `styleUrl` properties.
 
 Delete those two files.
 
-```apps/host/src/app/react-wrapper/react-wrapper.css```
+`apps/host/src/app/react-wrapper/react-wrapper.css`
 
-```apps/host/src/app/react-wrapper/react-wrapper.html```
+`apps/host/src/app/react-wrapper/react-wrapper.html`
 
-Remove the import for the ```CommonModule```.
+Remove the import for the `CommonModule`.
 
 BEFORE
 ```typescript
@@ -454,7 +460,7 @@ export class ReactWrapper implements AfterContentInit {
 
 This wrapper component will load the React Web Component into the view.
 
-It gets the loader function, ```loadchildren``` from the route data.
+It gets the loader function, `loadchildren` from the route data.
 
 It gets the name of the Web Component from the route data.
 
@@ -464,7 +470,7 @@ Then it creates a new element and inserts the React Web Component into it.
 
 Open the host routes file.
 
-```apps/host/src/app/app.routes.ts```
+`apps/host/src/app/app.routes.ts`
 
 Import the wrapper component.
 
@@ -472,7 +478,7 @@ Import the wrapper component.
 import { ReactWrapper } from './react-wrapper/react-wrapper';
 ```
 
-Add a new route by adding the following code to the ```app.routes.ts``` file.
+Add a new route by adding the following code to the `app.routes.ts` file.
 
 ```
   {
@@ -492,7 +498,7 @@ Add a new route by adding the following code to the ```app.routes.ts``` file.
 
 Open the host tsconfig.json file.
 
-```apps/host/tsconfig.json```
+`apps/host/tsconfig.json`
 
 Under the compilerOptions, add the following code to allow JSX.
 
@@ -505,7 +511,7 @@ Under the compilerOptions, add the following code to allow JSX.
 
 Open the host app.html file.
 
-```apps/host/src/app/app.html```
+`apps/host/src/app/app.html`
 
 Add the following code to the host app.html file.
 
@@ -522,6 +528,6 @@ After clicking on the navigation link, you should see the React remote applicati
 When using the Nx generator to create the host and remote applications,
 it will automatically use the Nx Welcome page component for each of the view components.
 
-```apps/host/src/app/nx-welcome.ts```
+`apps/host/src/app/nx-welcome.ts`
 
 Once you have generated the host and remote MFE apps, you can replace the default welcome page component with your own component.
