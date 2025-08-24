@@ -12,7 +12,7 @@ August 22, 2025
 
 ## Versions Used
 
-At the time of this writing, it used the latest versions provided by Nx
+At the time of this writing, we used the latest versions provided by Nx
 
 * Angular 20.1.0
 * React 19.0.0
@@ -42,19 +42,21 @@ JC may be available to work remotely and can be contacted at these links:
   * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
   * [Add the Nx Package for React](#add-the-nx-package-for-react) 
 * [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
+  * [Commit and Push the Changes for the Angular Host App](#commit-and-push-the-changes-for-the-angular-host-app)
+* [Build and Run the Host Application](#build-and-run-the-host-application)
   * [Browser View of the Host Application](#browser-view-of-the-host-application)
   * [Use the Menu to Access the Remote Applications](#use-the-menu-to-access-the-remote-applications)
 * [Generate the React Remote Application](#generate-the-react-remote-application)
   * [Build and Run the Remote Application](#build-and-run-the-remote-application)
   * [ReRun the Host Application](#rerun-the-host-application)
 * [Add the React Remote Application to the Host](#add-the-react-remote-application-to-the-host)
-  * [Add the React Remote to the Host Manifest](#add-the-react-remote-to-the-host-manifest)
   * [Convert the React Remote to a Web Component](#convert-the-react-remote-to-a-web-component)
-    * [Add Package @r2wc/react-to-web-component](#add-package-r2wcreact-to-web-component)
-    * [Update the React Remote to Convert to a Web Component](#update-the-react-remote-to-convert-to-a-web-component)
+  * [Add Package @r2wc/react-to-web-component](#add-package-r2wcreact-to-web-component)
+  * [Update the React Remote to Convert to a Web Component](#update-the-react-remote-to-convert-to-a-web-component)
   * [In the Angular Host, Add a Wrapper Component](#in-the-angular-host-add-a-wrapper-component)
   * [Add the Wrapper Component and the React Remote Component to the Host Routes](#add-the-wrapper-component-and-the-react-remote-component-to-the-host-routes)
   * [Add Jsx to the Host TsConfig](#add-jsx-to-the-host-tsconfig)
+  * [Add the React Remote to the Host Manifest](#add-the-react-remote-to-the-host-manifest)
   * [Add the React Remote URL to the Host HTML](#add-the-react-remote-url-to-the-host-html) 
 * [ReRun the Host Application To Verify the React Remote Application](#rerun-the-host-application-to-verify-the-react-remote-application)
 * [Next Steps](#next-steps)
@@ -128,11 +130,15 @@ Commit and push the changes.
 
 ## Generate the Angular Host App and Two Remotes
 
-Use the Nx Angular Generator command to create the Angular host app.
+Use the Nx Angular Generator in `@nx/angular` to create the Angular host app with this command:
+
+```
+nx g @nx/angular:host apps/host --dynamic --remotes=remote1,remote2 --style=scss --e2eTestRunner=playwright --unitTestRunner=jest
+```
 
 See the Nx documentation for more information on the [Angular Host App Generator Options](https://nx.dev/technologies/angular/api/generators/host#options)
 
-Add the following command line options.
+We are using the following command line options.
 
 * --dynamic
 * --remotes=remote1,remote2
@@ -140,11 +146,7 @@ Add the following command line options.
 * --e2eTestRunner=playwright
 * --unitTestRunner=jest
 
-```
-nx g @nx/angular:host apps/host --dynamic --remotes=remote1,remote2 --style=scss --e2eTestRunner=playwright --unitTestRunner=jest
-```
-
-NOTE: The --remotes option is a comma-separated list of remote applications.
+**NOTE:** The --remotes option is a comma-separated list of remote applications.
 When using the Angular host generator, the remote applications will always be Angular applications.
 
 ### Commit and Push the Changes for the Angular Host App
@@ -168,7 +170,7 @@ Or you can use a command in the terminal window.
 nx run host:serve:development
 ```
 
-* **host** is the name of the host application.
+In this example, `host` is the name of the host application.
 
 In the Run console output, it should include the browser address.
 
@@ -189,14 +191,13 @@ It will have a menu in the upper left corner.
 In this case, if you have generated a host and two remotes,
 the menu will have three items:
 
-
 * Home
 * Remote1
 * Remote2
 
-#### Use the Menu to Access the Remote Applications
+### Use the Menu to Access the Remote Applications
 
-Try clicking on the **Remote1** or **Remote2** menu items.
+Try clicking on the `Remote1` or `Remote2` menu items.
 
 You will see that each remote is accessed with routing.
 
@@ -204,7 +205,7 @@ The host application will be the root.
 Each remote will be a child of the host application.
 
 The remote app name will be in the URL path.
-For example, the Remote1 application will be:
+For example, the `Remote1` application URL will be:
 
 ```
 http://localhost:4200/remote1
@@ -217,7 +218,7 @@ When you click on the `Remote2` menu item, you should see the remote application
 #### Verify the Remote View is Provided by MFE
 
 To verify that the remote view is provided by MFE,
-open the browser Developer Tools and go to the **Network** tab.
+open the browser Developer Tools and go to the `Network` tab.
 
 Refresh the browser.
 
@@ -246,7 +247,7 @@ As noted earlier, the Angular host generator will always create Angular applicat
 
 If you want to create a React remote application, you will need to use the Nx React Remote App Generator.
 
-Generate the React remote application using the @nx/react package.
+Generate the React remote application using the `@nx/react` package with this command:
 
 ```
 nx g @nx/react:remote apps/remote3 --style=scss --e2eTestRunner=playwright --bundler=webpack
@@ -272,7 +273,6 @@ The Nx generator does not support mixing different frameworks in MFEs.
 You will need to configure the remote application to the host manually.
 We will provide detailed instructions later in this document.
 
-
 ### Build and Run the Remote Application
 
 Build and run the remote application and test it in the browser.
@@ -285,7 +285,7 @@ Or you can use a command in the terminal window.
 nx run remote3:serve:development
 ```
 
-* **Remote3** is the name of the React remote application.
+In this example, `*remote3` is the name of the React remote application.
 
 Look in the Run console output for the browser address.
 In this case, it is:
@@ -314,39 +314,16 @@ You will need to configure the remote application to the host manually.
 
 There are several steps to manually add the React remote application to the Angular host.
 
-### Add the React Remote to the Host Manifest
-
-Open the host manifest file.
-
-`apps/host/public/module-federation.manifest.json`
-
-BEFORE
-```json
-{
-  "remote1": "http://localhost:4201/mf-manifest.json",
-  "remote2": "http://localhost:4202/mf-manifest.json"
-}
-```
-
-AFTER
-```json
-{
-  "remote1": "http://localhost:4201/mf-manifest.json",
-  "remote2": "http://localhost:4202/mf-manifest.json",
-  "remote3": "http://localhost:4203/mf-manifest.json"
-}
-```
-
 ### Convert the React Remote to a Web Component
 
 To use the React remote application in the Angular host,
 it must be converted to a Web Component.
 
-We will use the **@r2wc/react-to-web-component** package to convert the React remote application to a Web Component.
+We will use the `@r2wc/react-to-web-component` package to convert the React remote application to a Web Component.
 
-#### Add Package @r2wc/react-to-web-component
+### Add Package @r2wc/react-to-web-component
 
-Add the package **@r2wc/react-to-web-component** to the Nx workspace.
+Add the package `@r2wc/react-to-web-component` to the Nx workspace.
 
 ```
 nx add @r2wc/react-to-web-component
@@ -356,7 +333,7 @@ This package will convert a React component to a Web Component.
 
 It can only be used with React 18 or newer.
 
-#### Update the React Remote to Convert to a Web Component
+### Update the React Remote to Convert to a Web Component
 
 Open the React remote app component.
 
@@ -399,7 +376,8 @@ We need an Angular component to wrap the React Web Component.
 
 We will call this component `react-wrapper`.
 
-In the Angular host app, create a new directory using the same name as the component, in the src/app directory, and create the component, using the Nx Angular component generator.
+In the Angular host app, create a new directory using the same name as the component,
+in the src/app directory, and create the component, using the Nx Angular component generator.
 
 ```
 nx g @nx/angular:component apps/host/src/app/react-wrapper/react-wrapper
@@ -460,9 +438,9 @@ export class ReactWrapper implements AfterContentInit {
 
 This wrapper component will load the React Web Component into the view.
 
-It gets the loader function, `loadchildren` from the route data.
+It gets the loader function, `load()` from the route data `loadChildren` property.
 
-It gets the name of the Web Component from the route data.
+It gets the name of the Web Component from the route data `elementName` property.`
 
 Then it creates a new element and inserts the React Web Component into it.
 
@@ -507,6 +485,29 @@ Under the compilerOptions, add the following code to allow JSX.
     "jsx": "react-jsx",
 ```
 
+### Add the React Remote to the Host Manifest
+
+Open the host manifest file.
+
+`apps/host/public/module-federation.manifest.json`
+
+BEFORE
+```json
+{
+  "remote1": "http://localhost:4201/mf-manifest.json",
+  "remote2": "http://localhost:4202/mf-manifest.json"
+}
+```
+
+AFTER
+```json
+{
+  "remote1": "http://localhost:4201/mf-manifest.json",
+  "remote2": "http://localhost:4202/mf-manifest.json",
+  "remote3": "http://localhost:4203/mf-manifest.json"
+}
+```
+
 ### Add the React Remote URL to the Host HTML
 
 Open the host app.html file.
@@ -519,7 +520,7 @@ Add the following code to the host app.html file.
   <li><a routerLink="remote3">Remote3</a></li>
 ```
 
-### ReRun the Host Application To Verify the React Remote Application
+## ReRun the Host Application To Verify the React Remote Application
 
 After clicking on the navigation link, you should see the React remote application in the Angular host application.
 
