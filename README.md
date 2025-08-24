@@ -474,7 +474,7 @@ Add a new route by adding the following code to the `app.routes.ts` file.
 
 ### Add Jsx to the Host TsConfig
 
-Open the host tsconfig.json file.
+Open the host tsconfig file.
 
 `apps/host/tsconfig.json`
 
