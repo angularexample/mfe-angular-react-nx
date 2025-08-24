@@ -510,11 +510,11 @@ AFTER
 
 ### Add the React Remote URL to the Host HTML
 
-Open the host app.html file.
+Open the host app HTML file.
 
 `apps/host/src/app/app.html`
 
-Add the following code to the host app.html file.
+Add the following code to the host app HTML file.
 
 ```
   <li><a routerLink="remote3">Remote3</a></li>
