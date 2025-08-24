@@ -440,7 +440,7 @@ This wrapper component will load the React Web Component into the view.
 
 It gets the `load()` function from the route data `loadChildren` property.
 
-It gets the name of the Web Component from the route data `elementName` property.`
+It gets the element name of the Web Component from the route data `elementName` property.`
 
 Then it creates a new element and inserts the React Web Component into it.
 
