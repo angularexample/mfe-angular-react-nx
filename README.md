@@ -46,6 +46,7 @@ JC may be available to work remotely and can be contacted at these links:
 * [Build and Run the Host Application](#build-and-run-the-host-application)
   * [Browser View of the Host Application](#browser-view-of-the-host-application)
   * [Use the Menu to Access the Remote Applications](#use-the-menu-to-access-the-remote-applications)
+  * [Verify the Remote View is Provided by MFE](#verify-the-remote-view-is-provided-by-mfe)
 * [Generate the React Remote Application](#generate-the-react-remote-application)
   * [Build and Run the Remote Application](#build-and-run-the-remote-application)
   * [ReRun the Host Application](#rerun-the-host-application)
@@ -111,7 +112,7 @@ Use your IDE to add the `error.log` directory to the .gitignore file.
 
 You need the Nx packages for Angular and React.
 
-Note: The old packages: `@nrwl/angular`, `@nrwl/react` are deprecated.
+**NOTE:** The old packages: `@nrwl/angular`, `@nrwl/react` are deprecated.
 
 
 ### Add the Nx Package for Angular
@@ -140,11 +141,11 @@ See the Nx documentation for more information on the [Angular Host App Generator
 
 We are using the following command line options.
 
-* --dynamic
-* --remotes=remote1,remote2
-* --style=scss
-* --e2eTestRunner=playwright
-* --unitTestRunner=jest
+* `--dynamic`
+* `--remotes=remote1,remote2`
+* `--style=scss`
+* `--e2eTestRunner=playwright`
+* `--unitTestRunner=jest`
 
 **NOTE:** The --remotes option is a comma-separated list of remote applications.
 When using the Angular host generator, the remote applications will always be Angular applications.
@@ -215,7 +216,7 @@ When you click on the `Remote1` menu item, you should see the remote application
 
 When you click on the `Remote2` menu item, you should see the remote application running in the browser.
 
-#### Verify the Remote View is Provided by MFE
+### Verify the Remote View is Provided by MFE
 
 To verify that the remote view is provided by MFE,
 open the browser Developer Tools and go to the `Network` tab.
@@ -285,7 +286,7 @@ Or you can use a command in the terminal window.
 nx run remote3:serve:development
 ```
 
-In this example, `*remote3` is the name of the React remote application.
+In this example, `remote3` is the name of the React remote application.
 
 Look in the Run console output for the browser address.
 In this case, it is:
@@ -440,7 +441,7 @@ This wrapper component will load the React Web Component into the view.
 
 It gets the `load()` function from the route data `loadChildren` property.
 
-It gets the element name of the Web Component from the route data `elementName` property.`
+It gets the element name of the Web Component from the route data `elementName` property.
 
 Then it creates a new element and inserts the React Web Component into it.
 
