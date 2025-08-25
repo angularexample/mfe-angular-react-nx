@@ -6,6 +6,12 @@ All code is provided in the GitHub repo [https://github.com/angularexample/mfe-a
 
 It includes step-by-step instructions for creating the project.
 
+## See the Article on Medium
+
+You can read the article on Medium for this project:
+
+https://medium.com/@info_35389/mfe-angular-host-with-react-remote-using-nx-61067408eeb4
+
 ## Date Published
 
 August 22, 2025
