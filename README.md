@@ -2,7 +2,9 @@
 
 This is a sample project for using MFEs with an Angular host and a React remote, using Nx.
 
-All code is provided in the GitHub repo [https://github.com/angularexample/mfe-angular-react-nx](https://github.com/angularexample/mfe-angular-react-nx).
+All code is provided in the GitHub repo:
+
+https://github.com/angularexample/mfe-angular-react-nx
 
 It includes step-by-step instructions for creating the project.
 
@@ -12,7 +14,9 @@ You can clone the repo and use the code as you see fit. Or you can follow the in
 
 In return, Please:
 
-* Go to the repository https://github.com/angularexample/mfe-angular-react-nx and click the **Starred** button at the top right.
+### Click the Star Button, and Follow the Author
+
+* Go to the Repository https://github.com/angularexample/mfe-angular-react-nx and click the **Star** button at the top right.
 * Go to my GitHub page https://github.com/angularexample and click the **Follow** button on the left side.
 
 This will help to promote the repo and help others find this solution.
