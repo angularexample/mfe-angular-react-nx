@@ -19,7 +19,7 @@ In return, Please:
 * Go to the Repository https://github.com/angularexample/mfe-angular-react-nx and click the **Star** button at the top right.
 * Go to my GitHub page https://github.com/angularexample and click the **Follow** button on the left side.
 
-This will help to promote the repo and help others find this solution.
+This will promote the repo and help others to find this solution.
 
 ## See the Article on Medium
 
