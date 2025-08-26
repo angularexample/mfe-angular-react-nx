@@ -169,6 +169,11 @@ We are using the following command line options.
 * `--e2eTestRunner=playwright`
 * `--unitTestRunner=jest`
 
+The `--dynamic` option is required for the host generator in this project.
+This crucial flag instructs the generator to set up the host for dynamic Module Federation.
+This means the host won't have the remote applications' details hardcoded in its `module-federation.config.ts` or `webpack.config.ts` files;
+instead, it will rely on a runtime mechanism to discover them.
+
 **NOTE:** The --remotes option is a comma-separated list of remote applications.
 When using the Angular host generator, the remote applications will always be Angular applications.
 
