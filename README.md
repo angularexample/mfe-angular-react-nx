@@ -138,11 +138,15 @@ You need the Nx packages for Angular and React.
 
 ### Add the Nx Package for Angular
 
+**NOTE:** The old package: `@nrwl/angular` is deprecated.
+
 ```
 nx add @nx/angular
 ```
 
 ### Add the Nx Package for React
+
+**NOTE:** The old package: `@nrwl/react` is deprecated.
 
 ```
 nx add @nx/react
