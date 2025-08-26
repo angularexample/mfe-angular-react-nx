@@ -133,9 +133,6 @@ Use your IDE to add the `error.log` directory to the .gitignore file.
 
 You need the Nx packages for Angular and React.
 
-**NOTE:** The old packages: `@nrwl/angular`, `@nrwl/react` are deprecated.
-
-
 ### Add the Nx Package for Angular
 
 **NOTE:** The old package: `@nrwl/angular` is deprecated.
