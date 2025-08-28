@@ -62,6 +62,7 @@ JC may be available to work remotely and can be contacted at these links:
 * [Add Nx Packages for Angular and React](#add-nx-packages-for-angular-and-react)
   * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
   * [Add the Nx Package for React](#add-the-nx-package-for-react) 
+  * [Fix the NPM Install Error](#fix-the-npm-install-error)
 * [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
   * [Commit and Push the Changes for the Angular Host App](#commit-and-push-the-changes-for-the-angular-host-app)
 * [Build and Run the Host Application](#build-and-run-the-host-application)
