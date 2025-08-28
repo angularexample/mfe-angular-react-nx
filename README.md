@@ -153,7 +153,7 @@ Commit and push the changes.
 
 ## Generate the Angular Host App and Two Remotes
 
-Use the Nx Angular Generator in `@nx/angular` to create the Angular host app with this command:
+Use the Nx Angular Generator in `@nx/angular` to create the Angular host app and two remote apps with this command:
 
 ```
 nx g @nx/angular:host apps/host --dynamic --remotes=remote1,remote2 --style=scss --e2eTestRunner=playwright --unitTestRunner=jest
