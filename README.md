@@ -149,6 +149,27 @@ nx add @nx/angular
 nx add @nx/react
 ```
 
+### Fix the NPM Install Error
+
+If you get an error when running the `npm install` command,
+you will need to fix the error or use the `--force` option.
+
+This error is caused by a dependency conflict between the packages that this version of nx uses.
+
+I was able to fix the error by changing the `package.json` file as follows.
+
+* Change the version of jest and related items from 30.0.2 or 30.0.0 to 29.5.0.
+* Change the version of jest-preset-angular from 15.0.0 to 14.6.1.
+
+```
+"@types/jest": "^29.5.0",
+
+"jest": "^29.5.0",
+"jest-environment-jsdom": "^29.5.0",
+"jest-preset-angular": "~14.6.1",
+"jest-util": "^29.5.0",
+```
+
 Commit and push the changes.
 
 ## Generate the Angular Host App and Two Remotes
