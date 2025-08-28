@@ -1,6 +1,11 @@
 {
   "name": "@mfe-angular-react-nx/source",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Example of MFE with Angular host and React remote using Nx",
+  "author": {
+    "name": "JC Lango",
+    "email": "info@angularexample.com"
+  },
   "license": "MIT",
   "scripts": {},
   "private": true,
