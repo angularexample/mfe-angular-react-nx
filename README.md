@@ -315,6 +315,8 @@ If you provide a path name for the remote application, you don't need the name o
 
 In this case, `remote3` is the name, and `apps` is the directory.
 
+**NOTE:** The `--bundler=webpack` option is required. Webpack is needed for connecting the MFE apps.
+
 **NOTE: Do not supply the `--host` option.**
 
 Since the host is an Angular application, the generation step will fail.
