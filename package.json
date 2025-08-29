@@ -34,6 +34,7 @@
     "@playwright/test": "^1.36.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@r2wc/react-to-web-component": "^2.0.4",
+    "@rspack/core": "1.4.11",
     "@schematics/angular": "~20.1.0",
     "@svgr/webpack": "^8.0.1",
     "@swc-node/register": "~1.9.1",
