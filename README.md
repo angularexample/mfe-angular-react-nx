@@ -62,8 +62,8 @@ JC may be available to work remotely and can be contacted at these links:
 * [Add Nx Packages for Angular and React](#add-nx-packages-for-angular-and-react)
   * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
   * [Add the Nx Package for React](#add-the-nx-package-for-react) 
-  * [Fix the NPM Install Error](#fix-the-npm-install-error)
-  * [Fix the Build Error](#fix-the-build-error)
+  * [Fix the Nx Buf for NPM Install Error](#fix-the-nx-bug-for-npm-install-error)
+  * [Fix the Nx Bug for Build Error](#fix-the-nx-bug-for-build-error)
 * [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
   * [Commit and Push the Changes for the Angular Host App](#commit-and-push-the-changes-for-the-angular-host-app)
 * [Build and Run the Host Application](#build-and-run-the-host-application)
@@ -243,7 +243,7 @@ nx run host:serve:development
 In this example, `host` is the name of the host application.
 
 **NOTE:** At the moment, there is a bug in the Nx Build process that causes the build to fail.
-See [Fix the Build Error](#fix-the-build-error)
+See [Fix the Nx Bug for Build Error](#fix-the-nx-bug-for-build-error)
 
 In the Run console output, it should include the browser address.
 
@@ -363,7 +363,7 @@ nx run remote3:serve:development
 In this example, `remote3` is the name of the React remote application.
 
 **NOTE:** At the moment, there is a bug in the Nx Build process that causes the build to fail.
-See [Fix the Build Error](#fix-the-build-error)
+See [Fix the Nx Bug for Build Error](#fix-the-nx-bug-for-build-error)
 
 Look in the Run console output for the browser address.
 In this case, it is:
