@@ -62,8 +62,9 @@ JC may be available to work remotely and can be contacted at these links:
 * [Add Nx Packages for Angular and React](#add-nx-packages-for-angular-and-react)
   * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
   * [Add the Nx Package for React](#add-the-nx-package-for-react) 
-  * [Fix the Nx Buf for NPM Install Error](#fix-the-nx-bug-for-npm-install-error)
-  * [Fix the Nx Bug for Build Error](#fix-the-nx-bug-for-build-error)
+  * [Fix the Nx Package Bugs](#fix-the-nx-package-bugs)
+    * [Fix the NPM Install Error Bug](#fix-the-npm-install-error-bug)
+    * [Fix the Nx Build Error Bug](#fix-the-nx-build-error-bug)
 * [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
   * [Commit and Push the Changes for the Angular Host App](#commit-and-push-the-changes-for-the-angular-host-app)
 * [Build and Run the Host Application](#build-and-run-the-host-application)
@@ -151,20 +152,24 @@ nx add @nx/angular
 nx add @nx/react
 ```
 
-### Fix the Nx Bug for NPM Install Error
+### Fix the Nx Package Bugs
 
-If you get an error when running the `npm install` command,
-you will need to fix the error or use the `--force` option.
+At this time, there are two bugs in the Nx packages.
+You will need to change a few things in the `package.json` file to fix them.
 
-This error is caused by a dependency conflict between the packages that this version of nx uses.
-This is a known issue.
+These bugs should be fixed in the next release of Nx.
+So you should first try to run the NPM Install and Nx Build commands before making these changes.
+
+#### Fix the NPM Install Error Bug
+
+If you get an error when you run `npm install` in the terminal window,
+you will need to change the `package.json` file, to lower the version of **jest**.
+
+Here is the Nx Issue:
 
 https://github.com/nrwl/nx/issues/32530
 
-I was able to fix the error by changing the `package.json` file as follows.
-
-* Change the version of jest and related items from 30.0.2 or 30.0.0 to 29.5.0.
-* Change the version of jest-preset-angular from 15.0.0 to 14.6.1.
+In the `package.json` file, change the following lines to this:
 
 ```
 "@types/jest": "^29.5.0",
@@ -175,21 +180,24 @@ I was able to fix the error by changing the `package.json` file as follows.
 "jest-util": "^29.5.0",
 ```
 
-### Fix the Nx Bug for Build Error
+#### Fix the Nx Build Error Bug
 
-If you get an error when running the `nx build` or `nx serve` command,
-you will need to fix the error.
+If you get an error when you try to build or serve the project,
+you will need to change the `package.json` file, to add a package.
 
-There is a bug in the Nx build process that causes the build to fail. 
-This is a known issue.
+Here is the Nx Issue:
 
 https://github.com/nrwl/nx/issues/32542
 
-The workaround is to add rspack to your `package.json`, `devDependencies` as follows.
+Add this line to the `package.json` file, under the `devDependencies` section::
 
 ```
 "@rspack/core": "1.4.11",
 ```
+
+Delete the `node_modules` directory and the `package-lock.json` file.
+
+Run `npm install` again.
 
 Commit and push the changes.
 
