@@ -251,7 +251,7 @@ nx run host:serve:development
 In this example, `host` is the name of the host application.
 
 **NOTE:** At the moment, there is a bug in the Nx Build process that causes the build to fail.
-See [Fix the Nx Bug for Build Error](#fix-the-nx-bug-for-build-error)
+See [Fix the Nx Build Error Bug](#fix-the-nx-build-error-bug)
 
 In the Run console output, it should include the browser address.
 
@@ -370,8 +370,8 @@ nx run remote3:serve:development
 
 In this example, `remote3` is the name of the React remote application.
 
-**NOTE:** At the moment, there is a bug in the Nx Build process that causes the build to fail.
-See [Fix the Nx Bug for Build Error](#fix-the-nx-bug-for-build-error)
+**NOTE:** At the time of this writing, there is a bug in the Nx Build process that causes the build to fail.
+See [Fix the Nx Build Error Bug](#fix-the-nx-build-error-bug)
 
 Look in the Run console output for the browser address.
 In this case, it is:
