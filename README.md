@@ -14,7 +14,7 @@ You can clone the repo and use the code as you see fit. Or you can follow the in
 
 In return, Please:
 
-### Click the Star Button, and Follow the Author
+### Click the Star Button and Follow the Author
 
 * Go to the Repository https://github.com/angularexample/mfe-angular-react-nx and click the **Star** button at the top right.
 * Go to my GitHub page https://github.com/angularexample and click the **Follow** button on the left side.
@@ -199,9 +199,6 @@ nx run host:serve:development
 
 In this example, `host` is the name of the host application.
 
-**NOTE:** At the moment, there is a bug in the Nx Build process that causes the build to fail.
-See [Fix the Nx Build Error Bug](#fix-the-nx-build-error-bug)
-
 In the Run console output, it should include the browser address.
 
 ```
@@ -342,9 +339,6 @@ nx run remote3:serve:development
 ```
 
 In this example, `remote3` is the name of the React remote application.
-
-**NOTE:** At the time of this writing, there is a bug in the Nx Build process that causes the build to fail.
-See [Fix the Nx Build Error Bug](#fix-the-nx-build-error-bug)
 
 Look in the Run console output for the browser address.
 In this case, it is:
