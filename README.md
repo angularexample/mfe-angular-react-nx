@@ -579,6 +579,12 @@ Add the following code to the host app HTML file.
 
 ## ReRun the Host Application To Verify the React Remote Application
 
+Stop the remote application.
+
+Build and run the host application and test it in the browser.
+
+[Build and Run the Host Application](#build-and-run-the-host-application)
+
 After clicking on the navigation link, you should see the React remote application in the Angular host application.
 
 ## Next Steps
