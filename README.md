@@ -29,15 +29,15 @@ https://medium.com/@info_35389/mfe-angular-host-with-react-remote-using-nx-61067
 
 ## Date Published
 
-August 22, 2025
+September 8, 2025
 
 ## Versions Used
 
 At the time of this writing, we used the latest versions provided by Nx
 
-* Angular 20.1.0
+* Angular 20.2.0
 * React 19.0.0
-* Nx 21.4.1
+* Nx 21.5.1
 
 ## About The Author
 
@@ -62,16 +62,14 @@ JC may be available to work remotely and can be contacted at these links:
 * [Add Nx Packages for Angular and React](#add-nx-packages-for-angular-and-react)
   * [Add the Nx Package for Angular](#add-the-nx-package-for-angular)
   * [Add the Nx Package for React](#add-the-nx-package-for-react) 
-  * [Fix the Nx Package Bugs](#fix-the-nx-package-bugs)
-    * [Fix the NPM Install Error Bug](#fix-the-npm-install-error-bug)
-    * [Fix the Nx Build Error Bug](#fix-the-nx-build-error-bug)
-* [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
+≈* [Generate the Angular Host App and Two Remotes](#generate-the-angular-host-app-and-two-remotes)
   * [Commit and Push the Changes for the Angular Host App](#commit-and-push-the-changes-for-the-angular-host-app)
 * [Build and Run the Host Application](#build-and-run-the-host-application)
   * [Browser View of the Host Application](#browser-view-of-the-host-application)
   * [Use the Menu to Access the Remote Applications](#use-the-menu-to-access-the-remote-applications)
   * [Verify the Remote View is Provided by MFE](#verify-the-remote-view-is-provided-by-mfe)
 * [Generate the React Remote Application](#generate-the-react-remote-application)
+  * [Fix the NPM Install Error Bug](#fix-the-npm-install-error-bug)
   * [Build and Run the Remote Application](#build-and-run-the-remote-application)
   * [ReRun the Host Application](#rerun-the-host-application)
 * [Add the React Remote Application to the Host](#add-the-react-remote-application-to-the-host)
@@ -141,7 +139,7 @@ You need the Nx packages for Angular and React.
 **NOTE:** The old package: `@nrwl/angular` is deprecated.
 
 ```
-nx add @nx/angular
+nx add @nx/angular@latest
 ```
 
 ### Add the Nx Package for React
@@ -149,57 +147,8 @@ nx add @nx/angular
 **NOTE:** The old package: `@nrwl/react` is deprecated.
 
 ```
-nx add @nx/react
+nx add @nx/react@latest
 ```
-
-### Fix the Nx Package Bugs
-
-At this time, there are two bugs in the Nx packages.
-You will need to change a few things in the `package.json` file to fix them.
-
-These bugs should be fixed in the next release of Nx.
-So you should first try to run the NPM Install and Nx Build commands before making these changes.
-
-#### Fix the NPM Install Error Bug
-
-If you get an error when you run `npm install` in the terminal window,
-you will need to change the `package.json` file, to lower the version of **jest**.
-
-Here is the Nx Issue:
-
-https://github.com/nrwl/nx/issues/32530
-
-In the `package.json` file, change the following lines to this:
-
-```
-"@types/jest": "^29.5.0",
-
-"jest": "^29.5.0",
-"jest-environment-jsdom": "^29.5.0",
-"jest-preset-angular": "~14.6.1",
-"jest-util": "^29.5.0",
-```
-
-#### Fix the Nx Build Error Bug
-
-If you get an error when you try to build or serve the project,
-you will need to change the `package.json` file, to add a package.
-
-Here is the Nx Issue:
-
-https://github.com/nrwl/nx/issues/32542
-
-Add this line to the `package.json` file, under the `devDependencies` section::
-
-```
-"@rspack/core": "1.4.11",
-```
-
-Delete the `node_modules` directory and the `package-lock.json` file.
-
-Run `npm install` again.
-
-Commit and push the changes.
 
 ## Generate the Angular Host App and Two Remotes
 
@@ -355,6 +304,30 @@ The Nx generator does not support mixing different frameworks in MFEs.
 
 You will need to configure the remote application to the host manually.
 We will provide detailed instructions later in this document.
+
+### Fix the NPM Install Error Bug
+
+You may get an error when you run `npm install` in the terminal window,
+you will need to change the `package.json` file, to lower the version of **jest**.
+
+Here is the Nx Issue:
+
+https://github.com/nrwl/nx/issues/32530
+
+In the `package.json` file, under `devDependencies` change the following lines to this:
+
+```
+"@types/jest": "29.5.0",
+
+"babel-jest": "29.5.0",
+
+"jest": "29.5.0",
+"jest-environment-jsdom": "29.5.0",
+"jest-preset-angular": "14.6.1",
+"jest-util": "29.5.0",
+```
+
+Delete the `node_modules` directory and run `npm install` again.
 
 ### Build and Run the Remote Application
 
