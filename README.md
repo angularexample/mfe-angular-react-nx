@@ -324,7 +324,11 @@ In the `package.json` file, under `devDependencies` change the following lines t
 "jest-util": "29.5.0",
 ```
 
-Delete the `node_modules` directory and run `npm install` again.
+Delete the `node_modules` directory and the `package-lock.json` file and run `npm install` again.
+
+Add the `package-lock.json` file to the Git repository.
+
+Commit and push the changes.
 
 ### Build and Run the Remote Application
 
